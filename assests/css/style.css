@@ -1,13 +1,10 @@
 body{
     margin: 0;
     padding: 0;
-    background-color: rgb(206, 215, 218);
-}
-h1, h2,h3{
-    text-align: center;
+    background-color:  rgb(6, 85, 85);
 }
 button{
-    width: 20%;
+    width: 30%;
     margin-top: 5px;
     margin-bottom: 5px;
     display: flex;
@@ -15,17 +12,17 @@ button{
     justify-content: flex-start;
 }
 .container {
-   background-color: rgb(255, 255, 255);
-   
+    background-color: rgb(240, 151, 50);
     margin-top: 100px;
-   border-radius: 5px;
-  
-
+    border-radius: 5px;
+    border-style: solid;
+    border-width: 5px;
+    border-color: white;
     text-align: center;
     width: 50%;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    
+    color: white;
 };
 
