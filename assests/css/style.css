@@ -1,4 +1,31 @@
+body{
+    margin: 0;
+    padding: 0;
+    background-color: rgb(206, 215, 218);
+}
+h1, h2,h3{
+    text-align: center;
+}
+button{
+    width: 20%;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
 .container {
-    position: fixed;
-    left: 30px;
+   background-color: rgb(255, 255, 255);
+   
+    margin-top: 100px;
+   border-radius: 5px;
+  
+
+    text-align: center;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
 };
+
