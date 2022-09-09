@@ -1,28 +1,101 @@
+/* DO NOT EDIT THE .CONTAINER CLASS */
+/* DO NOT EDIT THE .CONTAINER CLASS */
+/* DO NOT EDIT THE .CONTAINER CLASS */
+/* DO NOT EDIT THE .CONTAINER CLASS */
+* {
+    --main-text-color: #73787d;
+    --header-text-color: #45484b;
+    --form-background-color: #e8ecf9;
+    --page-background-color: #ebecf0;
+    
+}
+
+
 body{
     margin: 0;
     padding: 0;
-    background-color:  rgb(6, 85, 85);
+    background-color: var(--page-background-color);
+    
 }
-button{
-    width: 30%;
-    margin-top: 5px;
-    margin-bottom: 5px;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-}
-.container {
-    background-color: rgb(240, 151, 50);
+
+/*------------------------------------------------------------------------------------------------*/
+/* CONTAINERS */
+.login-container {
     margin-top: 100px;
-    border-radius: 5px;
-    border-style: solid;
-    border-width: 5px;
-    border-color: white;
+    padding: 25px;
     text-align: center;
     width: 50%;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    color: white;
-};
+    border-radius: 10px;
+    background: linear-gradient(145deg, var(--background-color));
+    box-shadow:  20px 20px 60px gray,
+             -20px -20px 60px white;  
+    
+}
 
+
+/*------------------------------------------------------------------------------------------------*/
+/* FORMS */
+.form-control {
+    border-color: transparent;
+    background-color: var(--form-background-color);
+    box-shadow: -5px -5px 10px white,
+                5px 5px 10px gray;
+
+}
+
+/*------------------------------------------------------------------------------------------------*/
+/* BUTTONS */
+.btn {
+    width: 30%;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border-radius: 10px;
+    border-color: transparent;
+    background-color: var(--page-background-color);
+    box-shadow: -5px -5px 10px white,
+                5px 5px 10px gray;
+    color: var(--main-text-color);
+
+}
+
+.btn--click {
+    box-shadow: inset -5px -5px 10px white,
+                5px 5px 10px gray;
+}  
+
+.btn:hover {
+    background-color: var(--main-text-color); !important;
+    color: var(--background-color)
+}
+
+/*------------------------------------------------------------------------------------------------*/
+/* CARDS */
+.card {
+    border-radius: 10px;
+    border-color: transparent;
+    background-color: var(--page-background-color);
+    box-shadow: -5px -5px 10px white,
+                5px 5px 10px gray;
+    color: var(--main-text-color);
+    text-align: left;
+
+}
+
+.card-title {
+    color: var(--header-text-color);
+}
+
+/*------------------------------------------------------------------------------------------------*/
+/* DROPDOWNS */
+.dropdown-menu {
+    border-radius: 10px;
+    background-color: var(--page-background-color);
+    box-shadow: 5px 5px 10px gray;
+    color: black;
+}
+
+/*------------------------------------------------------------------------------------------------*/
+/* MODAL */
