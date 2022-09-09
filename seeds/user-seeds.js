@@ -1,3 +1,4 @@
+// nothing changed yet from module project, might be able to use this file to test db
 const sequelize = require("../config/connection");
 const { User, Post } = require("../models");
 

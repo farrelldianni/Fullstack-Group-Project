@@ -1,3 +1,4 @@
+// nothing changed yet from module project
 const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/connection");
 // create our Post model
