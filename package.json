@@ -1,7 +1,7 @@
 {
   "name": "vinder",
   "version": "1.0.0",
-  "description": "",
+  "description": "Vinder is a full-stack web application designed for gamers who want to connect to other players, find friends to hop on with, and discuss their favorite games.",
   "main": "server.js",
   "scripts": {
     "test": "jest",
@@ -21,11 +21,13 @@
     "bcrypt": "^5.0.1",
     "dotenv": "^16.0.2",
     "express": "^4.18.1",
+    "express-handlebars": "^6.0.6",
     "jest": "^29.0.2",
     "mysql2": "^2.3.3",
-    "sequelize": "^6.21.5"
+    "sequelize": "^6.21.6"
   },
   "devDependencies": {
     "sequelize-cli": "^6.4.1"
-  }
+  },
+  "keywords": []
 }
