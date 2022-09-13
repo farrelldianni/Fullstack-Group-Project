@@ -20,9 +20,12 @@ body{
 
 /*------------------------------------------------------------------------------------------------*/
 /* CONTAINERS */
+
+
 .login-container {
-    margin-top: 100px;
-    padding: 25px;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    padding: 10px;
     text-align: center;
     width: 50%;
     display: flex;
@@ -30,20 +33,42 @@ body{
     justify-content: center;
     border-radius: 10px;
     background: linear-gradient(145deg, var(--background-color));
-    box-shadow:  20px 20px 60px gray,
-             -20px -20px 60px white;  
+    box-shadow:  20px 20px 60px #fe75fe,
+             -20px -20px 60px #74fffe; 
     
 }
+
+.post-container {
+    border-radius: 10px;
+    background: linear-gradient(145deg, var(--background-color));
+    box-shadow:  20px 20px 60px #fe75fe,
+             -20px -20px 60px #74fffe;
+
+}
+
+.container-fluid {
+    width: 90%;
+    
+}
+
+/*------------------------------------------------------------------------------------------------*/
+/* COMPONENTS */
+.search {
+    align-items: center;
+    margin: auto;
+}
+
+
 
 
 /*------------------------------------------------------------------------------------------------*/
 /* FORMS */
-.form-control {
+.form {
     border-color: transparent;
     background-color: var(--form-background-color);
     box-shadow: -5px -5px 10px white,
                 5px 5px 10px gray;
-
+   
 }
 
 /*------------------------------------------------------------------------------------------------*/
@@ -58,10 +83,11 @@ body{
     box-shadow: -5px -5px 10px white,
                 5px 5px 10px gray;
     color: var(--main-text-color);
+    width: auto;
 
 }
 
-.btn--click {
+.btn-press {
     box-shadow: inset -5px -5px 10px white,
                 5px 5px 10px gray;
 }  
@@ -81,11 +107,16 @@ body{
                 5px 5px 10px gray;
     color: var(--main-text-color);
     text-align: left;
+    margin-top: 10px;
 
 }
 
 .card-title {
     color: var(--header-text-color);
+}
+
+.card-columns {
+    display: inline-block;
 }
 
 /*------------------------------------------------------------------------------------------------*/
@@ -94,8 +125,32 @@ body{
     border-radius: 10px;
     background-color: var(--page-background-color);
     box-shadow: 5px 5px 10px gray;
-    color: black;
+    color: var(--main-text-color);
+}
+
+.dropdown {
+    /* margin: auto; */
 }
 
 /*------------------------------------------------------------------------------------------------*/
 /* MODAL */
+.modal-dialog {
+    top: 25%;
+    border-radius: 10px;
+    background-color: var(--page-background-color);
+    /* background: linear-gradient(145deg, var(--background-color));
+    box-shadow:  20px 20px 60px black,
+             -20px -20px 60px white;   */
+  
+}
+
+.modal-form {
+    width: 95%;
+    align-items: center;
+    margin: auto;
+}
+
+.modal-usr {
+    margin: 5px;
+    width: auto;
+}   
