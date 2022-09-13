@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/farrelldianni/Fullstack-Group-Project#readme",
   "dependencies": {
+    "animejs": "^3.2.1",
     "bcrypt": "^5.0.1",
     "dotenv": "^16.0.2",
     "express": "^4.18.1",
