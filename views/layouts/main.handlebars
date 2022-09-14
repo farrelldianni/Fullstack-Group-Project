@@ -11,4 +11,18 @@
 <body>
     {{{body}}}
 </body>
+<script>
+    const options = {
+	method: 'GET',
+	headers: {
+		'X-RapidAPI-Key': '745ca4026emshc369b12cf50acffp18d178jsn7dddbc0b0900',
+		'X-RapidAPI-Host': 'rawg-video-games-database.p.rapidapi.com'
+	}
+};
+
+fetch('https://rawg-video-games-database.p.rapidapi.com/games?key=6c2a5a51704d4dffbbe62360ff856c8a', options)
+	.then(response => response.json())
+	.then(response => console.log(response))
+	.catch(err => console.error(err));
+</script>
 </html>
