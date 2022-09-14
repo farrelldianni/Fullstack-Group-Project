@@ -1,7 +1,8 @@
 const router = require("express").Router();
-const { Post, User } = require("../../models");
+const User = require("../../models/User");
+const Post = require('../../models/Post')
 
-// get all users
+// get all posts
 router.get('/', (req, res) => {
   Post.findAll({
     attributes: ['id', 'post_url', 'title', 'created_at'],

@@ -1,4 +1,4 @@
-// nothing changed yet from module project
+// nothing changed yet from module project (we might not need to)
 const { Model, DataTypes } = require("sequelize");
 const bcrypt = require("bcrypt");
 const sequelize = require("../config/connection");
