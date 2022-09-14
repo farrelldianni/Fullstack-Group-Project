@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { User } = require('../../models');
+const { User } = require('../../models/User');
 
 // GET /api/users
 router.get('/', (req, res) => {
@@ -90,4 +90,4 @@ router.delete('/:id', (req, res) => {
       });
   });
 
-module.exports = Comment;
+module.exports = router;
