@@ -19,9 +19,6 @@ Post.init(
     text: {
       type: DataTypes.STRING,
       allowNull: false,
-      validate: {
-        isURL: true,
-      },
     },
     system: {
       type: DataTypes.STRING,
