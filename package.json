@@ -30,5 +30,9 @@
   },
   "devDependencies": {
     "sequelize-cli": "^6.4.1"
+  },
+  "engines": {
+    "node": "16.16.0",
+    "npm": "8.11.0'
   }
 }
