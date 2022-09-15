@@ -1,93 +1,45 @@
-const router = require('express').Router();
-const { User } = require('../../models/User');
+const router = require("express").Router();
+const Comment = require("../../models/Comment");
 
-// GET /api/users
-router.get('/', (req, res) => {
-    User.findAll()
-      .then(dbUserData => res.json(dbUserData))
-      .catch(err => {
+router.get("/", (req, res) => {
+  Comment.findAll()
+    .then((dbCommentData) => res.json(dbCommentData))
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});
+
+router.post("/", (req, res) => {
+    Comment.create({
+      comment_text: req.body.comment_text,
+      user_id: req.body.user_id,
+      post_id: req.body.post_id,
+    })
+      .then((dbCommentData) => res.json(dbCommentData))
+      .catch((err) => {
         console.log(err);
-        res.status(500).json(err);
+        res.status(400).json(err);
       });
-  });
+});
 
-// GET /api/users/1
-router.get('/:id', (req, res) => {
-    
-    User.findOne({
-      where: {
-   
-        id: req.params.id
+router.delete("/:id", (req, res) => {
+  Comment.destroy({
+    where: {
+      id: req.params.id,
+    },
+  })
+    .then((dbCommentData) => {
+      if (!dbCommentData) {
+        res.status(404).json({ message: "No comment found with this id!" });
+        return;
       }
+      res.json(dbCommentData);
     })
-      .then(dbUserData => {
-       
-        if (!dbUserData) {
-          res.status(404).json({ message: 'No user found with this id' });
-          return;
-        }
-        res.json(dbUserData);
-      })
-      .catch(err => {
-        console.log(err);
-        res.status(500).json(err);
-      });
-  });
-
-// POST /api/users
-router.post('/', (req, res) => {
-  
-    User.create({
-      comment_text: req.body.username,
-      user_id: req.body.email,
-      post_id: req.body.password
-    })
-      .then(dbUserData => res.json(dbUserData))
-      .catch(err => {
-        console.log(err);
-        res.status(500).json(err);
-      });
-  });
-
-// PUT /api/users/1
-router.put('/:id', (req, res) => {
-  
-    User.update(req.body, {
-      where: {
-        id: req.params.id
-      }
-    })
-      .then(dbUserData => {
-        if (!dbUserData[0]) {
-          res.status(404).json({ message: 'No user found with this id' });
-          return;
-        }
-        res.json(dbUserData);
-      })
-      .catch(err => {
-        console.log(err);
-        res.status(500).json(err);
-      });
-  });
-
-// DELETE /api/users/1
-router.delete('/:id', (req, res) => {
-    User.destroy({
-      where: {
-        id: req.params.id
-      }
-    })
-      .then(dbUserData => {
-        if (!dbUserData) {
-          res.status(404).json({ message: 'No user found with this id' });
-          return;
-        }
-        res.json(dbUserData);
-      })
-      .catch(err => {
-        console.log(err);
-        res.status(500).json(err);
-      });
-  });
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});
 
 module.exports = router;

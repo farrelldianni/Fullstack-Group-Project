@@ -1,94 +1,101 @@
-const router = require('express').Router();
-const  User  = require('../../models/User');
+const router = require("express").Router();
+const { Post, User } = require("../../models");
 
-// GET /api/users
+// get all users
 router.get('/', (req, res) => {
-    User.findAll()
-      .then(dbUserData => res.json(dbUserData))
-      .catch(err => {
-        console.log(err);
-        res.status(500).json(err);
-      });
-  });
-
-// GET /api/users/1
-router.get('/:id', (req, res) => {
-  
-    User.findOne({
-      where: {
-        //from models/Users.js
-        id: req.params.id
+  Post.findAll({
+    attributes: ["id", "title", "created_at"],
+    order: [["created_at", "DESC"]],
+    include: [
+      {
+        model: User,
+        attributes: ["username"],
+      },
+    ],
+  })
+    .then((dbPostData) => res.json(dbPostData))
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});
+router.get("/:id", (req, res) => {
+  Post.findOne({
+    where: {
+      id: req.params.id,
+    },
+    attributes: ["id", "title", "created_at"],
+    include: [
+      {
+        model: User,
+        attributes: ["username"],
+      },
+    ],
+  })
+    .then((dbPostData) => {
+      if (!dbPostData) {
+        res.status(404).json({ message: "No post found with this id" });
+        return;
       }
+      res.json(dbPostData);
     })
-      .then(dbUserData => {
-     
-        if (!dbUserData) {
-          res.status(404).json({ message: 'No user found with this id' });
-          return;
-        }
-        res.json(dbUserData);
-      })
-      .catch(err => {
-        console.log(err);
-        res.status(500).json(err);
-      });
-  });
-
-// POST /api/users
-router.post('/', (req, res) => {
-
-    User.create({
-      username: req.body.username,
-      post_url: req.body.post_url,
-      user_id: req.body.user_id,
-      title: req.body.title
-    })
-      .then(dbUserData => res.json(dbUserData))
-      .catch(err => {
-        console.log(err);
-        res.status(500).json(err);
-      });
-  });
-
-// PUT /api/users/1
-router.put('/:id', (req, res) => {
- 
-    User.update(req.body, {
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});
+router.post("/", (req, res) => {
+  Post.create({
+    title: req.body.title,
+    text: req.body.text,
+    system: req.body.system,
+    user_id: req.body.user_id,
+  })
+    .then((dbPostData) => res.json(dbPostData))
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});
+router.put("/:id", (req, res) => {
+  Post.update(
+    {
+      title: req.body.title,
+    },
+    {
       where: {
-        id: req.params.id
+        id: req.params.id,
+      },
+    }
+  )
+    .then((dbPostData) => {
+      if (!dbPostData) {
+        res.status(404).json({ message: "No post found with this id" });
+        return;
       }
+      res.json(dbPostData);
     })
-      .then(dbUserData => {
-        if (!dbUserData[0]) {
-          res.status(404).json({ message: 'No user found with this id' });
-          return;
-        }
-        res.json(dbUserData);
-      })
-      .catch(err => {
-        console.log(err);
-        res.status(500).json(err);
-      });
-  });
-
-// DELETE /api/users/1
-router.delete('/:id', (req, res) => {
-    User.destroy({
-      where: {
-        id: req.params.id
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});
+router.delete("/:id", (req, res) => {
+  Post.destroy({
+    where: {
+      id: req.params.id,
+    },
+  })
+    .then((dbPostData) => {
+      if (!dbPostData) {
+        res.status(404).json({ message: "No post found with this id" });
+        return;
       }
+      res.json(dbPostData);
     })
-      .then(dbUserData => {
-        if (!dbUserData) {
-          res.status(404).json({ message: 'No user found with this id' });
-          return;
-        }
-        res.json(dbUserData);
-      })
-      .catch(err => {
-        console.log(err);
-        res.status(500).json(err);
-      });
-  });
-
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});
 module.exports = router;
