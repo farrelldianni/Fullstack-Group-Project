@@ -23,6 +23,11 @@ app.get("/home", (req, res) =>
 {
   res.render("homepage")
 })
+
+app.get("/post", (req ,res) => 
+{
+  res.render("post")
+})
 sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, () => console.log("Now listening"));
 });
