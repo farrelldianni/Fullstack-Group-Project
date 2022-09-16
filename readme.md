@@ -16,6 +16,6 @@ This project was a collaboration between
 - Anime.js
 
 ## Future Development
-
+- getting it to work 
 
 ## Link
