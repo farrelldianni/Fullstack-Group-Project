@@ -16,6 +16,22 @@ This project was a collaboration between
 - Anime.js
 
 ## Future Development
-- getting it to work 
+Complete project functionality
+- Log in
+- Create posts
+- Populate homepage with posts from the database
+
+Adding the ability for users to look through a genre of game they are interested in.
+
+Add ability for users to direct message other account holders and friend request.
+
+Full profile page 
+
+Add ability to search for a specific game
+
 
 ## Link
+https://lonely-gamer-hours.herokuapp.com/
+
+## Screenshot
+![Screenshot of deployed application](./assets/images/Vinder.png)
